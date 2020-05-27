@@ -1,0 +1,189 @@
+                                                                                                                            Python To be remembered Notes
+
+1. In python we can also write a negative index which will consider the value from last term. The last term will have the index value of -1.
+2. In slicing a list or a tuple the program will print one character less than the last digit of the slicing index.
+3. List.insert(index,character) is used to add a specific number at a particular index.  This will not delete the number at that index.
+4. Dictionaries,array and list are mutable while string and tuples are not,set cannot be accessed using indices.
+5. set.update(element) or set.add(element) or dictionary.update(element) are used to add new value to sets and disctionaries.
+6. .format(value) is an alternative for %d,%s etc in python. syntex is 'my name is {}'.format('name',value2). Its helpful in OOPS where we cannot use format specifiers with  self.variables.
+7. #all([list comprehensions] and any([list comprehensions],next condition))
+#list comprehensions always come in [ ] inside any or all.
+*Collections libraries
+
+5. namedtuple() - returns a tuple with a named value for each element in tuple. example: (name='Maaz'). It is present in collections library.
+6. Chainmap- converts two or more dictionaries to one in a list. 
+Syntax- ChainMap(a,b)
+7. Counter - Returns dictionary of number of times particluar character is appearing in a list
+Syntax- a=[1,2,2,3]    y=Counter(a)   print(y) #Output-{1:1,2:2,3:1}
+8. list(y.elements()) - Returns list of elements.
+9.collections.OrderedDict() is used to print the elements in the same order as it is written.
+x=collections.OrderedDict()
+x[]='frkfmrk'
+10. import datetime
+print(t=datetime.time(5,1,45)
+#output-5:01:45
+print t.minutes()
+print(datetime.date.today())
+print(d1=datetime.date(yy,mm,dd))
+print(d1.replace(year=new))  #this will replace year
+print(d2-d1)=time difference(delta)
+import pdb(python debugger)
+syntax=pdb.set_trace()- This helps us to analyze different operations with different values inside the run window.
+import timeit- This modeule gives info about how long program is taking to run and what variables or part of code is slowing the program.
+timeit.timeit('Expression',number=number of times you want the code to run)
+
+
+*Arrays in Python
+
+9. import array as a
+Syntax- x= a.array[1,2,3]  print(x)  #output= array[1,2,3].
+numpy.sum/prod(list of lists,axis=0) is used to add or multiply the elements axis wise (here=0), numpy.prod(summed array) is used multiply the elements of the resultant array.
+10. Array cancatenation-
+
+*Hashtables and Hashmaps
+
+11. They are the data structures that maps keys to its values.
+12. Methods to create dictionaries-
+- a={'A':'a'} 
+- x=dict()
+13. Accessing dictionaries
+- print(a.values())  print(a.keys())   for i in a.values : print(i) # This will print all values by default if we dont use values it prints keys , for i,j in a.items(): print(i,j) # This prints both the keys and the values.
+
+*Dataframe
+
+14. It is a 2-D data structure that consists of various type. You can convert a dictionary into pandas dataframe.
+
+*Operators in python 
+
+15. Identity operators- is - returns true if both variables are same object , is not- returns true if both are not same object
+example- x is y , x is not y
+16. Membership operators- in and not in
+17. Bitwise operatoes are used to compare binary numbers
+
+*File handling in python
+
+18. Syntex to open a file- open(filename,mode)
+Modes for opening files
+"r"(read)-open a file for reading,error if file is not present.(Default mode)
+"x"(create)- creates a file, returns file if file exists.
+"a"(append)- opens file for appending, creates a file if it does not exists.
+"w"(write)- Opens a file for writing,creates a file if does not exists.
+'r+'-to Read and write to a file. does not create a new file if not present.
+19. file=open(filename.text,"r")
+file.close()
+print(file.read()) #if we pass a number in file.read(number) ,it will read only that amount of characters.
+print(file.readline(1))- read and print 1st line.
+20. file.write()- It will delete everything if present and rewrite from starting.
+21. file.write()-It will add new characters to existing characters.
+22. os.remove('File name')- delete
+os.path.exists('File name')- check whether a fileis present.
+os.rmdir('Folder name')-remove folder
+23.In above cases,file variable can be considered a big string in which all content is present.
+24. line.startswith('string')- this will print only those lines which starts with 'string'.
+25. f.seek(cursor postion) is used to set position of cursor. To write at last in r+ mode we can use f.seek(len(f.read)) at then write.
+
+*Sets in Python
+
+25. l=[1,1,2]    s=set{l}  # This will print list as a set.  list(set(l)) # This method can be used to remove duplicate elements from list annd print thr list again.
+26. Since sets are unindexed we can use set.remove(element) to delete element from it.
+27. Sets always output unique elements.
+28. variable=set.copy()- can be used to copy the set in another variable.
+29. We cannot store another list,tuple or dictionary in a set.
+30. Union= set1 | set2 #print(union)
+31. Intersection=set1 & set2.
+s=set()
+s.difference(s2)- this will give elements of s that are not in s2.
+or we can directly use s-s2
+
+*List Comprehensions
+a=list(i**2 for i in range(0,2))   # This will print a list from 0 to 1 with squares
+print(a)
+
+*Numpy
+
+This is the inbuilt library in python whuch supports big arrays operations.
+32. To convert list into array use numpy.array(list name,int)
+33. numpy.dot(a,b) is use to find array multiplication.`
+
+
+*Generators in Python
+
+34. Generator is a function which contains yield statement instead of return and when it returns a value it has the ability to continue the function again from where it left after a caller called it.
+
+*Map
+
+35. map function is used to map the list or input with a particular function . Syntex- map(function,variable)  map(int,input)
+list(map(int,variable) should be used in order to turn every element's datatype into int.
+
+* Intro to *arg and **kwargs
+
+36. *args take multiple arguments and convert them into a single tuple, we can then access elements of this loop.
+def functon(*args):
+ print(args)
+print(functon(1,2,3,4))    #Output= (1,2,3,4)
+37. if def functon(a,*args) is used then, 1 will be stored in 'a' and the rest numbers will be counted in the tuple.
+program runs even if the *args is the parameter and no argument is given. but if normal parameter is given with no argument, it creates error.
+To pass a list as an argument we pass *list_name which unpacks the items in list and convert them into tuples.
+38. **kwargs are passed to operate with dictionaries. They work in similar manner as with *args
+
+*Object Oriented Programming
+
+Classes- 
+
+
+
+
+Inheritance-
+
+class Animal:   #this is the base class
+ def __init__(self):   #magic method.
+  print('Animal')
+ def who(self):
+   print('I am an animal')
+class Dog(Animal):  #this is the derived class. bcz even a dog is an animal and we have that method in Animal class
+ def __init__(self):   #This contains all the instances including Animal class and the new instances that need to be added.
+ Animal.__init__(self)  #This contains all the new instances that are accosiated with Dog class.
+print('Dog')
+-The actions which are available for Animal are now available for the class Dog now.
+To overwrite previous method, we just define that function again in derived class and give what we want.
+Note that inheritance is only used when we dont want to declare the instances again and again, with self.instance, and we can use the functions of base class in sub class. Rest we have to pass all the arguments and parameters as same.
+
+* Polymorphism- inheriting more than one class from a base class. In multilevel inheritance, we can derive a sub class from previous sub class, syntex is same. for this,assume the previous sub class as a superclass for current class.
+Method resolution order gives the order of sub class to super class. #syntex is print(help(Dog))  At last it will print 'builtinsobject' from which every class is inherited.
+
+
+Advancec numbers in pyhton-
+It is represented by the characters 0-9 while values 10-15 are denoted by a,b,c,d,e,f respectively. They are written in base of 16. Also represented by applying 0x as a prefix. 
+for example - 0x2AF3 is (2*16^3+10*16^2+15*16+16^0*3) which is 10995.
+hex(value)  converts a number into hexa decimal.
+example hex(12)-oxc
+to convert in to binary we use the function bin(value) it gives output as a prefix 0b.
+round(value,number of decimal places)- rounds the given value upto given number of places.
+
+Advanced strings-
+backslash t is used to create a tab space between the two strings.
+s.isalpha,s.islower,s.isupper,s.isalnum is used to verify whether all the elements of given string are lower case,upper case, alphabets,stc.
+
+Advanced sets. 
+set1.issubset(set2) is used to know if set1 is subset of set2. Likewise, set2.issuperset(set1) isnused to know whether set2 is superset of set1.
+'lowercase'>'uppercase'>'special symbols'>'digits'
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+
+
+
+
+
